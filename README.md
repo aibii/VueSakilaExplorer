@@ -1,6 +1,6 @@
 # VueSakilaExplorer
 
-VueSakilaExplorer is a web application built with Vue.js that provides a user-friendly interface to explore the Sakila sample database. It allows users to browse through actors, films, and other entities within the database, showcasing the capabilities of Vue.js for building dynamic and responsive web interfaces.
+VueSakilaExplorer is a web application built with Vue.js that provides a user-friendly interface to explore the Sakila sample database. It allows users to browse through actors & films within the database, showcasing the capabilities of Vue.js for building dynamic and responsive web interfaces.
 
 ## Features
 
@@ -12,7 +12,7 @@ VueSakilaExplorer is a web application built with Vue.js that provides a user-fr
 ## Technology Stack
 
 - **Frontend**: Vue.js
-- **Backend**: [Specify backend technology]
+- **Backend**: Spring Boot
 - **Database**: Sakila Sample Database
 
 ## Project Setup
@@ -22,10 +22,15 @@ Follow these steps to get the VueSakilaExplorer running locally:
 ### Prerequisites
 
 - Node.js and npm installed
-- [Any other prerequisites]
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/VueSakilaExplorer.git
+   git clone https://github.com/aibii/VueSakilaExplorer.git
+
+2. Navigate to the project directory:
+   cd VueSakilaExplorer
+
+3. Install dependencies:
+   npm install
