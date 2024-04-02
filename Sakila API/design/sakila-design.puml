@@ -1,0 +1,43 @@
+@startuml sakila  
+
+skinparam style strictuml
+
+class Application {
+    main();
+}
+class MainController{
+    ActorRepo actorRepo;
+    FlimRepo filmRepo;
+    Page<Actor> getActors();
+}
+
+Application     <|..    MainController
+MainController  <|...    ActorRepo
+MainController  <|...    FilmRepo
+
+
+interface PagingAndSortingRepository<EntityType, IdType> {
+    Page<EntityType> findAll(pageRequest);
+}
+
+interface ActorRepo extends PagingAndSortingRepository<Actor, Long> {
+}
+
+interface FilmRepo extends PagingAndSortingRepository<Film, Long> {
+}
+
+class Actor{
+    Long actorId;
+    String firstName;
+    String lastName;
+}
+class Film{
+    Integer filmId;
+    String title;
+    String description;
+}
+
+ActorRepo       o-- "*" Actor
+FilmRepo        o-- "*" Film
+    
+@enduml

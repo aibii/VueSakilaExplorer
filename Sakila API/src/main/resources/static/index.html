@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Demo</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <h1>Welcome!!</h1>
+        <h1>{{ title }}</h1>
+        <button @click="fetchResource('actors')">Actors</button>
+        <button @click="fetchResource('films')">Films</button>
+
+        <h3>{{ resourceType}}</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="heading in headings" :key="heading">
+                        {{ formatHeading(heading) }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr v-for="(item, index) in content" :key="index">
+                    <td v-for="(value, key) in item" :key="key">
+                        {{ value }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="paging-info">
+            <p>Total Elements: {{ totalElements }}</p>
+            <p>Total Pages: {{ totalPages }}</p>
+            <div id="page-size-selector">
+                <label for="pageSize">Page Size:</label>
+                <select v-model="pageSize" @change="changePageSize">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+            <p>
+                <button @click="fetchFirstPage">First</button>
+                <button @click="changePage('prev')">Previous</button>
+                Current Page: {{ pageNumber + 1 }}
+                <button @click="changePage('next')">Next</button>
+                <button @click="fetchLastPage">Last</button>
+            </p>
+        </div>
+    </div>
+      
+    <script>
+        console.log('Inline script test');
+      </script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
