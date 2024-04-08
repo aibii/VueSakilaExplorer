@@ -11,7 +11,6 @@ let app = Vue.createApp({
             totalPages: 0,
             pageSize: 10,
             pageNumber: 0,
-            // Added from your previous 'data' definition
             actors: [],
             message: "Hello, Vue!"
         };
@@ -33,7 +32,6 @@ let app = Vue.createApp({
                 
                 this.content = json.content;
                 if (json.content && json.content.length > 0) {
-                    // Dynamically set headings based on keys of the first item in the content array
                     this.headings = Object.keys(json.content[0]);
                 } else {
                     this.headings = [];
@@ -78,18 +76,16 @@ let app = Vue.createApp({
             }
         },
         formatHeading(heading) {
-            // Split the string at each uppercase letter and replace camelCase with spaces
             const spaced = heading.replace(/([A-Z])/g, ' $1');
-            // Convert the first character of each word to uppercase
             const capitalized = spaced.replace(/^./, function(str){ return str.toUpperCase(); });
             return capitalized;
         },
         changePageSize() {
-            this.fetchResource(this.resourceType, 0, this.pageSize); // Assuming zero-based page index
+            this.fetchResource(this.resourceType, 0, this.pageSize);
         },
     },
     mounted() {
-        this.fetchResource('actors'); // Fetch initial data
+        this.fetchResource('actors');
     },
 });
 app.mount("#app");
